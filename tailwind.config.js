@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     colors: {
       primary: {
-        light: "#7E57C2", // Light purple
+        light: "#7F6DC2", // Light purple
         dark: "#4527A0", // Dark purple
       },
       "primary-hover": {

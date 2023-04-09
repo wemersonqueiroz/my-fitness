@@ -19,7 +19,7 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)

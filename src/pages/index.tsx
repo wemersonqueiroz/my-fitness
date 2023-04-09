@@ -1,54 +1,37 @@
 import Button from "@/components/Button"
-import DarkModeButton from "@/components/DarkModeButton"
-import Input from "@/components/Input"
-import Label from "@/components/Label"
-import { useTheme } from "@/components/ThemeContext"
 import { NextPage } from "next"
 import { Inter } from "next/font/google"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+
+import { auth } from "./firebase"
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+import { FcGoogle } from "react-icons/fc"
 
 const inter = Inter({ subsets: ["latin"] })
 
 const Home: NextPage = () => {
-  const { darkMode, toggleDarkMode } = useTheme()
+  const router = useRouter()
+  const googleAuth = new GoogleAuthProvider()
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      toggleDarkMode
-    }
-  }, [])
+  const login = async () => {
+    const result = await signInWithPopup(auth, googleAuth)
+    console.log(result)
+    router.push("/dashboard")
+  }
 
   return (
     <div className="flex flex-col items-center p-8 m-auto border rounded-lg border-primary-light dark:border-primary-dark drop-shadow-sm">
-      <p className="md:text-xl">Welcome</p>
-      <form className="flex flex-col gap-1 mt-8">
-        <Label htmlFor="email" className="" value="Email" />
-        <Input
-          name="Email Field"
-          id="email"
-          type="email"
-          placeholder=""
-          className=""
-        />
-        <Label htmlFor="password" className="" value="Password" />
-        <Input
-          name="Password Field"
-          id="password"
-          type="password"
-          placeholder=""
-          className=""
-        />
-        <Link href="/dashboard">
-          <Button buttonType="default" className="mx-auto mt-8" text="Login" />
-        </Link>
-        <p className="mx-auto mt-2 text-xs">
-          No account?{" "}
-          <span className="underline cursor-pointer text-font-secondary-light hover:text-font-primary-light">
-            Click here to register.
-          </span>
-        </p>
-      </form>
+      <p className="md:text-xl">Welcome to MyFitness</p>
+      <p className="mx-auto mt-4 text-xs">
+        To access the dasboard you need to be logged in.
+      </p>
+      <Button
+        buttonType="default"
+        onClick={login}
+        className="mx-auto mt-8"
+        text={`Login with Google`}
+        icon={<FcGoogle size={20} />}
+      />
     </div>
   )
 }

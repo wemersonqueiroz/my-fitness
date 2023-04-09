@@ -10,10 +10,7 @@ const DarkModeButton: React.FC = () => {
   return (
     <Button
       onClick={toggleDarkMode}
-      className={clsx("absolute top-10 right-10", {
-        "bg-primary-light": !darkMode,
-        "bg-primary-dark": darkMode,
-      })}
+      className="absolute top-10 right-10 bg-primary-dark dark:bg-primary-light hover:dark:bg-primary-dark hover:bg-primary-light"
       icon={darkMode ? <BsFillSunFill /> : <BsMoonStarsFill />}
     />
   )

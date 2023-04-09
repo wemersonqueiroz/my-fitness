@@ -28,13 +28,11 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       className={clsx(
         className,
-        "md:text-md flex w-fit cursor-pointer items-center justify-center rounded-md border border-transparent px-4 py-3 text-xs font-medium text-skin-base shadow-sm outline-none drop-shadow-lg dark:text-font-primary-dark text-font-primary-light active:scale-95 active:text-skin-inverted",
+        "md:text-md flex w-fit cursor-pointer items-center justify-center rounded-md border border-transparent px-2 py-3 text-xs font-medium text-skin-base shadow-sm outline-none drop-shadow-lg dark:text-font-primary-dark text-font-primary-light active:scale-95 active:text-skin-inverted",
         {
           "gap-2": icon,
-          "bg-primary-light dark:bg-primary-dark  ": buttonType === "default",
-          "hover:bg-green-400 active:bg-green-300": buttonType === "submit",
-          " hover:bg-red-400 active:bg-red-300": buttonType === "cancel",
-          "cursor-not-allowed active:scale-100": disabled,
+          "bg-primary-dark dark:bg-primary-light hover:dark:bg-primary-dark hover:bg-primary-light":
+            buttonType === "default",
         }
       )}
       onClick={onClick}>
