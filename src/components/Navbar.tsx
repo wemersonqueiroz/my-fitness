@@ -5,7 +5,6 @@ import clsx from "clsx"
 import { useState } from "react"
 import Button from "./Button"
 import router from "next/router"
-import { RxDashboard } from "react-icons/rx"
 
 const Navbar = () => {
   const [showingNavbar, setShowingNavbar] = useState(false)
@@ -65,9 +64,10 @@ const Navbar = () => {
         <span>{auth.currentUser ? auth.currentUser.displayName : null}</span> */}
       <div className="flex flex-col items-center mt-8">
         <div className="flex flex-col gap-4 duration-1000">
-          {buttons.map(button => {
+          {buttons.map((button, index) => {
             return (
               <Button
+                key={index}
                 onClick={button.onClick}
                 text={showingNavbar ? button.text : ""}
                 className={clsx("dark:bg-secondary-light bg-primary-dark ", {
