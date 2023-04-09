@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { auth } from "../pages/firebase"
+import { auth } from "../../firebase/firebase"
 import { signOut } from "firebase/auth"
 import clsx from "clsx"
 import { useState } from "react"

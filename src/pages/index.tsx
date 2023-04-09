@@ -3,7 +3,7 @@ import { NextPage } from "next"
 import { Inter } from "next/font/google"
 import { useRouter } from "next/router"
 
-import { auth } from "./firebase"
+import { auth } from "../../firebase/firebase"
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { FcGoogle } from "react-icons/fc"
 
