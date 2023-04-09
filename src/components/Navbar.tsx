@@ -17,21 +17,21 @@ const Navbar = () => {
   const buttons = [
     {
       text: "Dashboard",
-      icon: "./assets/dashboard.png",
+      icon: "/assets/dashboard.png",
       onClick: () => {
         router.push("/dashboard")
       },
     },
     {
       text: "Workout",
-      icon: "./assets/dumbbell.png",
+      icon: "/assets/dumbbell.png",
       onClick: () => {
         router.push("/workout")
       },
     },
     {
       text: "Body Shape",
-      icon: "./assets/caliper.png",
+      icon: "/assets/caliper.png",
       onClick: () => {
         router.push("/composition")
       },
@@ -75,12 +75,15 @@ const Navbar = () => {
                     showingNavbar,
                 })}
                 icon={
-                  <img
+                  <Image
+                    width={showingNavbar ? "10" : "20"}
+                    height={showingNavbar ? "10" : "20"}
                     src={button.icon}
                     className={clsx(" ", {
                       "w-8": showingNavbar,
                       "w-10": !showingNavbar,
                     })}
+                    alt={""}
                   />
                 }
               />
